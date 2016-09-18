@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.blazer.bigclient.mapper.BcExcelMapper" >
-  <resultMap id="BaseResultMap" type="org.blazer.bigclient.model.BcExcel" >
+<mapper namespace="com.evergrande.customer_service.mapper.BcExcelMapper" >
+  <resultMap id="BaseResultMap" type="com.evergrande.customer_service.model.BcExcel" >
     <!--
       WARNING - @mbggenerated
     -->

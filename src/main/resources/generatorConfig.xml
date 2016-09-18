@@ -17,7 +17,7 @@
 
         <!-- 插件用于扩展或修改通过MyBatis Generator (MBG)代码生成器生成的代码 -->
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="org.blazer.bigclient.util.MyMapper"/>
+            <property name="mappers" value="com.evergrande.customer_service.util.MyMapper"/>
         </plugin>
 
         <!-- 阻止生成注释信息 -->

@@ -24,7 +24,7 @@
     </bean>
 
     <!-- Convert 2 : String2ResponseBody -->
-    <bean id="blazerStringHttpMessageConverter" class="org.blazer.bigclient.util.UTF8StringHttpMessageConverter"/>
+    <bean id="blazerStringHttpMessageConverter" class="com.evergrande.customer_service.util.UTF8StringHttpMessageConverter"/>
 
     <!-- Spring MVC return @ResponseBody Convert -->
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
@@ -60,7 +60,7 @@
     </bean>
 
     <!-- 定义Excel的视图对象 -->
-    <bean name="excelView" class="org.blazer.bigclient.view.ExcelView"></bean>
+    <bean name="excelView" class="com.evergrande.customer_service.view.ExcelView"></bean>
 
     <mvc:annotation-driven/>
 
@@ -69,7 +69,7 @@
             <mvc:mapping path="/**"/>
             <!-- <mvc:exclude-mapping path="/system" /> -->
             <!-- <mvc:exclude-mapping path="/index" /> -->
-            <bean class="org.blazer.bigclient.interceptor.WebRequestInterceptor"/>
+            <bean class="com.evergrande.customer_service.interceptor.WebRequestInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 

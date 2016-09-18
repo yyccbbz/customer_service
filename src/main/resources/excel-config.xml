@@ -4,7 +4,7 @@
 	<!-- excel标签参看:ExcelDefinition,Field标签参看:FieldValue -->
 
 	<!-- BcExternalUser -->
-	<excel id="bcExternalUser" class="org.blazer.bigclient.model.BcExternalUser"
+	<excel id="bcExternalUser" class="com.evergrande.customer_service.model.BcExternalUser"
 		   sheetname="外部拓展客户名单列表" defaultColumnWidth="5000" enableStyle="true" defaultAlign="center">
 		<field name="id" title="自动编号" columnWidth="3000"/>
 		<field name="excelId" title="所属excel编号" columnWidth="3000"/>
@@ -22,7 +22,7 @@
 	</excel>
 
 	<!-- BcExternalUserBackup -->
-	<excel id="bcExternalUserBackup" class="org.blazer.bigclient.model.BcExternalUserBackup"
+	<excel id="bcExternalUserBackup" class="com.evergrande.customer_service.model.BcExternalUserBackup"
 		   sheetname="外部拓展客户名单列表备份" defaultColumnWidth="5000" enableStyle="true" defaultAlign="center">
 		<field name="id" title="自动编号"/>
 		<field name="excelId" title="所属excel编号"/>
@@ -33,7 +33,7 @@
 
 
 	<!-- BcWaitAllotUser -->
-	<excel id="bcWaitAllotUser" class="org.blazer.bigclient.model.BcWaitAllotUser"
+	<excel id="bcWaitAllotUser" class="com.evergrande.customer_service.model.BcWaitAllotUser"
 		   sheetname="平台待分配客户名单列表" defaultColumnWidth="5000" enableStyle="true" defaultAlign="center">
 		<field name="id" title="自动编号"/>
 		<field name="userName" title="客户名称"/>
@@ -53,7 +53,7 @@
 	</excel>
 
 	<!-- BcFormalUser -->
-	<excel id="bcFormalUser" class="org.blazer.bigclient.model.BcFormalUser"
+	<excel id="bcFormalUser" class="com.evergrande.customer_service.model.BcFormalUser"
 		   sheetname="正式客户名单列表" defaultColumnWidth="5000" enableStyle="true" defaultAlign="center">
 		<field name="id" title="自动编号"/>
 		<field name="excelId" title="所属excel编号"/>

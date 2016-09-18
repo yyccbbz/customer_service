@@ -99,7 +99,7 @@
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="org.blazer.bigclient.mapper"/>
         <!-- 3.2.2版本新特性，markerInterface可以起到mappers配置的作用，详细情况需要看Marker接口类 -->
-        <property name="markerInterface" value="org.blazer.bigclient.util.MyMapper"/>
+        <property name="markerInterface" value="com.evergrande.customer_service.util.MyMapper"/>
         <!-- 通用Mapper通过属性注入进行配置，默认不配置时会注册Mapper<T>接口
         <property name="properties">
             <value>
@@ -114,14 +114,14 @@
     </bean>
 
     <!-- Excel上下文  -->
-    <bean id="excelContext" class="org.blazer.bigclient.excel.ExcelContext">
+    <bean id="excelContext" class="com.evergrande.customer_service.excel.ExcelContext">
         <constructor-arg>
             <!--你自己的excel配置文件路径,不要使用classpath前缀,底层使用的classPathResource-->
             <value>excel-config.xml</value>
         </constructor-arg>
     </bean>
     <!-- 初始化SpringUtil -->
-    <bean id="springUtil" class="org.blazer.bigclient.util.SpringUtil"/>
+    <bean id="springUtil" class="com.evergrande.customer_service.util.SpringUtil"/>
 
     <!-- 事务管理相关 -->
     <aop:aspectj-autoproxy/>
