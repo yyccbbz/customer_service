@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<title>大客户系统</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-theme.css" rel="stylesheet">
+<style>
+.bian {
+	background-image: -moz-linear-gradient(top, #BDBD3A, #fff); /* Firefox */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFF0), color-stop(1, #fff)); /* Saf4+, Chrome */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFF0', endColorstr='#fff', GradientType='0'); /* IE*/
+}
+</style>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/pagehelper.js"></script>
+<script src="js/jquery.ajaxfileupload.js"></script>
+<script src="js/base.js"></script>
+<script src="js/commons.js"></script>
+<script>
+	window.onload = function() {
+		var width = $(window).width();
+		var height = $(window).height();
+		$("#center").width(width - 64);
+		$("#center").height(height - $("#north").height() - $("#south").height() - 103 - 32);
+		var init = function() {
+			var body = $('body');
+			var link_ul = $('#ulnavbar');
+			//
+			var link_li_1 = $('<li><a href="javascript:void(0);">外部扩展客户</a></li>');
+			link_li_1.click(function() {
+				setSrc(this, 'extuser.html');
+			});
+			link_ul.append(link_li_1);
+			//
+			var link_li_2 = $('<li><a href="javascript:void(0);">平台待分配客户</a></li>');
+			link_li_2.click(function() {
+				setSrc(this, 'page2.html');
+			});
+			link_ul.append(link_li_2);
+			//
+			var link_li_3 = $('<li><a href="javascript:void(0);">正式客户</a></li>');
+			link_li_3.click(function() {
+				setSrc(this, 'page3.html');
+			});
+			link_ul.append(link_li_3);
+			link_li_1.click();
+		};
+		var setSrc = function(obj, src) {
+			$("#center_head").text($(obj).text());
+			$("#ulnavbar .active").removeClass();
+			$(obj).addClass("active");
+			if (!$('#headBtn').hasClass('collapsed')) {
+				$('#headBtn').click();
+			}
+			if ($("#center").attr("src") == src) {
+				return;
+			}
+			$("#center").attr("src", src);
+			htmlobj = $.ajax({
+				url : src,
+				async : false
+			});
+			$("#center").html(htmlobj.responseText);
+		};
+		init();
+	};
+</script>
+</head>
+<body>
+	<div id="north" style="height: 50px;">
+		<nav class="navbar navbar-custom navbar-static-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button id="headBtn" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="javascript:void(0);">大客户系统-<span>首页</span></a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul id="ulnavbar" class="nav navbar-nav">
+					</ul>
+					<ul id="ulnavbar" class="nav navbar-nav navbar-right">
+					<li><a href="javascript:void(0);" onclick="alert('上菜');">小二</a></li>
+					<li><a href="javascript:void(0);" onclick="alert('登不出');">登出</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="panel panel-primary panel-border" style="overflow: auto; margin: 15px; align: center; background:">
+		<div id="center_head" class="panel-heading">默认</div>
+		<div id="center" class="panel-body"></div>
+	</div>
+	<div id="south" style="height: 20px; text-align: center; color: #fff; background-color: #337ab7;">@copy 2016 evergrande group</div>
+</body>
+</html>

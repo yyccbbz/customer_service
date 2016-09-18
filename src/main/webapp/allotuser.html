@@ -1,0 +1,135 @@
+<script>
+	$(function() {
+		var lock = false;
+		// 定义分页控件
+		var pagination = new PageHelper("pagination");
+		var findByPage = function(currentPage) {
+			if (lock) {
+				return;
+			}
+			lock = true;
+			$.post("ext/findByPage.do", {
+				currentPage : currentPage,
+				pageSize : 10,
+// 				search : $("#center .row #search_text").val()
+				search : search_text
+			}, function(data) {
+				// 		alert(JSON.stringify(data.page));
+				init(data.list);
+				// 初始化分页控件：参数：(当前页，页大小，总条数，点击分页时候调用的方法)
+				pagination.init(data.pageNum, data.pageSize, data.total, findByPage);
+				lock = false;
+			});
+		};
+
+		// 初始化数据
+		var init = function(rst) {
+			$("#tb>tbody").empty();
+			for ( var i in rst) {
+				var cls = i % 2 == 0 ? "info" : "warning";
+				var tr = $('<tr class="' + cls + '">');
+				tr.append('<td>' + rst[i].phoneNumber + '</td>');
+				tr.append('<td>' + rst[i].sysName + '</td>');
+				tr.append('<td>' + rst[i].sysIfRegister + '</td>');
+				tr.append('<td>' + rst[i].sysRegisterDate + '</td>');
+				tr.append('<td>' + rst[i].sysIfRealName + '</td>');
+				tr.append('<td>' + rst[i].sysIfBindCard + '</td>');
+				tr.append('<td>' + rst[i].sysIfTransaction + '</td>');
+				tr.append('<td>' + rst[i].sysReferrer + '</td>');
+				tr.append('<td>' + rst[i].sysRebateExpirationDate + '</td>');
+				$("#tb>tbody").append(tr);
+			}
+		};
+
+		findByPage(1);
+		$("#search").click(function(){
+			findByPage(1);
+		});
+		var search_text = "";
+		$("#search_text").change(function() {
+			search_text = $(this).val();
+		});
+	});
+
+	var importExcel = function () {
+		if ($("fileExcel").val().length > 0) {
+			ajaxFileUpload();
+		}
+		else {
+			alert("请选择图片");
+		}
+	};
+
+	var ajaxFileUpload = function () {
+		$.ajaxFileUpload({
+			url: "/etx/upload", //用于文件上传的服务器端请求地址
+			type: "post",
+			secureuri: false, //一般设置为false
+			fileElementId: "filePicture", //文件上传空间的id属性
+			dataType: "json", //返回值类型 一般设置为json
+			success: function (data, status) {  //服务器成功响应处理函数
+				alert(data.fileName);
+				alert(data.filePath);
+				alert(data.fileSize);
+			},
+			error: function (data, status, e){  //服务器响应失败处理函数
+				alert(e);
+			}
+		});
+	}
+
+</script>
+<div class="row" style="margin: 0;">
+	<div class="input-group has-primary" style="float: left; width: 200px;">
+		<input id="search_text" type="text" class="form-control" placeholder="Search for..." /> <span class="input-group-btn">
+			<button id="search" class="btn btn-primary" type="button">搜索</button>
+		</span>
+	</div>
+	<button type="button" class="btn btn-primary" style="float: right;" onclick="exportExcel();">导出Excel</button>
+	<button type="button" class="btn btn-primary" style="float: right; margin-right: 10px;" onclick="importExcel();">导入Excel</button>
+	<input type="file" id="fileExcel" name="fileExcel" accept=".xls,.xlsx" style="display: none"/>
+</div>
+<hr class="line-3" />
+<!-- /.col-lg-6 -->
+<table id="tb" class="table table-hover table-condensed table-bordered">
+	<thead>
+		<tr>
+			<th width="10%">手机号码</th>
+			<th width="10%">系统内姓名</th>
+			<th width="10%">是否注册</th>
+			<th width="10%">注册日期</th>
+			<th width="10%">是否实名</th>
+			<th width="10%">是否绑卡</th>
+			<th width="10%">是否有过交易</th>
+			<th width="10%">扫码推荐人</th>
+			<th width="10%">返利失效日期</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+<ul id="pagination" class="pagination" style="cursor:pointer"></ul>
+<!-- 
+	<ul id="pagination" class="pagination" style="cursor:pointer">
+		<li><a href="#" aria-label="Previous"> <span aria-hidden="true">首页</span>
+		</a></li>
+		<li><a href="#" aria-label="Previous"> <span aria-hidden="true">上一页</span>
+		</a></li>
+		<li class="active"><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#" aria-label="Next"> <span aria-hidden="true">下一页</span>
+		</a></li>
+		<li><a href="#" aria-label="Previous"> <span aria-hidden="true">尾页</span>
+		</a></li>
+		<li><span aria-hidden="true">
+		每页
+			<select>
+				<option>10</option>
+				<option>20</option>
+				<option>50</option>
+				<option>100</option>
+			</select>
+-->
