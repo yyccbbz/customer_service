@@ -22,7 +22,7 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 定义扫描包 -->
-    <context:component-scan base-package="org.blazer.**"></context:component-scan>
+    <context:component-scan base-package="com.evergrande.**"></context:component-scan>
 
     <util:properties id="dataSourceProperties" location="classpath:datasource.properties"></util:properties>
 
@@ -75,7 +75,7 @@
             </array>
         </property>
         <!-- 使用别名 -->
-        <property name="typeAliasesPackage" value="org.blazer.bigclient.model"/>
+        <property name="typeAliasesPackage" value="com.evergrande.customer_service.model"/>
         <!-- 分页助手 -->
         <property name="plugins">
             <array>
@@ -97,7 +97,7 @@
 
     <!-- 定义Mapper接口扫描器以及通用Mapper -->
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="org.blazer.bigclient.mapper"/>
+        <property name="basePackage" value="com.evergrande.customer_service.mapper"/>
         <!-- 3.2.2版本新特性，markerInterface可以起到mappers配置的作用，详细情况需要看Marker接口类 -->
         <property name="markerInterface" value="com.evergrande.customer_service.util.MyMapper"/>
         <!-- 通用Mapper通过属性注入进行配置，默认不配置时会注册Mapper<T>接口
@@ -127,7 +127,7 @@
     <aop:aspectj-autoproxy/>
 
     <aop:config>
-        <aop:pointcut id="appService" expression="execution(* org.blazer.bigclient.service..*Service*.*(..))"/>
+        <aop:pointcut id="appService" expression="execution(* com.evergrande.customer_service.service..*Service*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="appService"/>
     </aop:config>
 

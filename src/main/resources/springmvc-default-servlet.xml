@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
-    <context:component-scan base-package="org.blazer.bigclient.action.**"></context:component-scan>
+    <context:component-scan base-package="com.evergrande.customer_service.action.**"></context:component-scan>
 
     <!-- Convert 1 : Object2ResponseBody -->
     <bean id="mappingJacksonHttpMessageConverter"
@@ -61,6 +61,11 @@
 
     <!-- 定义Excel的视图对象 -->
     <bean name="excelView" class="com.evergrande.customer_service.view.ExcelView"></bean>
+
+    <!-- 定义Pdf模版视图 -->
+    <bean id="contract" class="com.evergrande.customer_service.view.PdfStamperView">
+        <property name="url" value="/WEB-INF/template/template.pdf" />
+    </bean>
 
     <mvc:annotation-driven/>
 

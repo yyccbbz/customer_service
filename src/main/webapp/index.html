@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-<title>大客户系统</title>
+<title>客服中心信息查询系统</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-theme.css" rel="stylesheet">
@@ -32,23 +32,23 @@
 			var body = $('body');
 			var link_ul = $('#ulnavbar');
 			//
-			var link_li_1 = $('<li><a href="javascript:void(0);">外部扩展客户</a></li>');
+			var link_li_1 = $('<li><a href="javascript:void(0);">客户信息</a></li>');
 			link_li_1.click(function() {
 				setSrc(this, 'extuser.html');
 			});
 			link_ul.append(link_li_1);
-			//
-			var link_li_2 = $('<li><a href="javascript:void(0);">平台待分配客户</a></li>');
+
+			/*var link_li_2 = $('<li><a href="javascript:void(0);">平台待分配客户</a></li>');
 			link_li_2.click(function() {
 				setSrc(this, 'page2.html');
 			});
 			link_ul.append(link_li_2);
-			//
 			var link_li_3 = $('<li><a href="javascript:void(0);">正式客户</a></li>');
 			link_li_3.click(function() {
 				setSrc(this, 'page3.html');
 			});
-			link_ul.append(link_li_3);
+			link_ul.append(link_li_3);*/
+
 			link_li_1.click();
 		};
 		var setSrc = function(obj, src) {
@@ -80,14 +80,14 @@
 					<button id="headBtn" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="javascript:void(0);">大客户系统-<span>首页</span></a>
+					<a class="navbar-brand" href="javascript:void(0);">客服中心信息查询系统-<span>首页</span></a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul id="ulnavbar" class="nav navbar-nav">
 					</ul>
 					<ul id="ulnavbar" class="nav navbar-nav navbar-right">
-					<li><a href="javascript:void(0);" onclick="alert('上菜');">小二</a></li>
-					<li><a href="javascript:void(0);" onclick="alert('登不出');">登出</a></li>
+					<li><a href="javascript:void(0);" onclick="alert('功能待开发');">XXX</a></li>
+					<li><a href="javascript:void(0);" onclick="alert('功能待开发');">登出</a></li>
 					</ul>
 				</div>
 			</div>

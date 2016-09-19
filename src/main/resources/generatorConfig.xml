@@ -31,14 +31,13 @@
         </jdbcConnection>
 
         <!-- 控制生成的实体类 -->
-        <javaModelGenerator targetPackage="org.blazer.bigclient.generator" targetProject="src/test/java"/>
+        <javaModelGenerator targetPackage="com.evergrande.customer_service.generator" targetProject="src/test/java"/>
 
         <!-- 控制生成XML的SQL映射文件和实体类 -->
-        <sqlMapGenerator targetPackage="org.blazer.bigclient.generator" targetProject="src/test/java"/>
+        <sqlMapGenerator targetPackage="com.evergrande.customer_service.generator" targetProject="src/test/java"/>
 
         <!-- 控制生成Mapper接口 -->
-        <javaClientGenerator targetPackage="org.blazer.bigclient.generator" targetProject="src/test/java"
-                             type="XMLMAPPER"/>
+        <javaClientGenerator targetPackage="com.evergrande.customer_service.generator" targetProject="src/test/java" type="XMLMAPPER"/>
 
         <!-- 配置要通过内省的表。只有配置的才会生成实体类和其他文件 -->
         <table tableName="%">

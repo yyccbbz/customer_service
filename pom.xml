@@ -19,6 +19,29 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+            <version>2.1.7</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+            <version>1.4</version>
+        </dependency>-->
+
+        <!--<dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.5.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext-asian</artifactId>
+            <version>5.2.0</version>
+        </dependency>-->
+
         <!-- 测试工具 -->
         <dependency>
             <groupId>junit</groupId>
@@ -176,6 +199,7 @@
             <artifactId>mapper</artifactId>
             <version>${mapper.version}</version>
         </dependency>
+
 
     </dependencies>
 

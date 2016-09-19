@@ -3,65 +3,17 @@
 <excels>
 	<!-- excel标签参看:ExcelDefinition,Field标签参看:FieldValue -->
 
-	<!-- BcExternalUser -->
-	<excel id="bcExternalUser" class="com.evergrande.customer_service.model.BcExternalUser"
-		   sheetname="外部拓展客户名单列表" defaultColumnWidth="5000" enableStyle="true" defaultAlign="center">
-		<field name="id" title="自动编号" columnWidth="3000"/>
-		<field name="excelId" title="所属excel编号" columnWidth="3000"/>
+	<!-- 客诉客户投资明细 -->
+	<excel id="csUser" class="com.evergrande.customer_service.model.CsUser"
+		   sheetname="客诉客户投资明细" defaultColumnWidth="5000" enableStyle="true" defaultAlign="center">
+		<field name="id" title="id"/>
 		<field name="phoneNumber" title="手机号码"/>
-		<field name="sysName" title="系统内姓名"/>
-		<field name="sysIfRegister" title="是否注册"/>
-		<field name="sysRegisterDate" title="注册日期"/>
-		<field name="sysIfRealName" title="是否实名"/>
-		<field name="sysIfBindCard" title="是否绑卡"/>
-		<field name="sysIfTransaction" title="是否有过交易" />
-		<field name="sysReferrer" title="扫码推荐人"/>
-		<field name="sysRebateExpirationDate" title="返利失效日期"/>
-		<field name="mtime" title="更新时间" pattern="yyyy-MM-dd HH:mm:ss"/>
-		<field name="ctime" title="创建时间" pattern="yyyy-MM-dd HH:mm:ss"/>
-	</excel>
-
-	<!-- BcExternalUserBackup -->
-	<excel id="bcExternalUserBackup" class="com.evergrande.customer_service.model.BcExternalUserBackup"
-		   sheetname="外部拓展客户名单列表备份" defaultColumnWidth="5000" enableStyle="true" defaultAlign="center">
-		<field name="id" title="自动编号"/>
-		<field name="excelId" title="所属excel编号"/>
-		<field name="phoneNumber" title="手机号码"/>
-		<field name="mtime" title="更新时间" pattern="yyyy-MM-dd HH:mm:ss"/>
-		<field name="ctime" title="创建时间" pattern="yyyy-MM-dd HH:mm:ss"/>
-	</excel>
-
-
-	<!-- BcWaitAllotUser -->
-	<excel id="bcWaitAllotUser" class="com.evergrande.customer_service.model.BcWaitAllotUser"
-		   sheetname="平台待分配客户名单列表" defaultColumnWidth="5000" enableStyle="true" defaultAlign="center">
-		<field name="id" title="自动编号"/>
-		<field name="userName" title="客户名称"/>
-		<field name="phoneNumber" title="手机号码"/>
-		<field name="registerDate" title="注册日期"/>
-		<field name="idCard" title="身份证号"/>
-		<field name="ifEmployee" title="是否员工"/>
-		<field name="assetsAmount" title="资产余额"/>
-		<field name="sex" title="性别"/>
-		<field name="age" title="年龄"/>
-		<field name="birthday" title="出生日期"/>
-		<field name="referrer" title="邀请人"/>
-		<field name="referrerPhoneNumber" title="邀请人手机号"/>
-		<field name="ifReferrerEmployee" title="邀请人是否员工"/>
-		<field name="mtime" title="更新时间" pattern="yyyy-MM-dd HH:mm:ss"/>
-		<field name="ctime" title="创建时间" pattern="yyyy-MM-dd HH:mm:ss"/>
-	</excel>
-
-	<!-- BcFormalUser -->
-	<excel id="bcFormalUser" class="com.evergrande.customer_service.model.BcFormalUser"
-		   sheetname="正式客户名单列表" defaultColumnWidth="5000" enableStyle="true" defaultAlign="center">
-		<field name="id" title="自动编号"/>
-		<field name="excelId" title="所属excel编号"/>
-		<field name="phoneNumber" title="手机号码"/>
-		<field name="reportOrAllot" title="上报/分配"/>
-		<field name="reportOrAllotDate" title="上报/分配时间"/>
-		<field name="investmentAdviser" title="投资顾问"/>
-		<field name="userIdentify" title="客户标识"/>
+		<field name="productName" title="产品名称"/>
+		<field name="settlementCapital" title="投资金额"/>
+		<field name="inceptionDate" title="投资起始时间"/>
+		<field name="dueDate" title="投资到期时间"/>
+		<field name="idNo" title="证件号码"/>
+		<field name="userName" title="客户姓名"/>
 		<field name="mtime" title="更新时间" pattern="yyyy-MM-dd HH:mm:ss"/>
 		<field name="ctime" title="创建时间" pattern="yyyy-MM-dd HH:mm:ss"/>
 	</excel>

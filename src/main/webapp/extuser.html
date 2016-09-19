@@ -10,7 +10,7 @@
             }
             _currentPage_lastCurrent = currentPage;
             lock = true;
-            $.post("ext/findByPage.do", {
+            $.post("cs/findByPage.do", {
                 currentPage: currentPage,
                 pageSize: 10,
 // 				search : $("#center .row #search_text").val()
@@ -35,17 +35,25 @@
             for (var i in rst) {
                 var cls = i % 2 == 0 ? "info" : "warning";
                 var tr = $('<tr class="' + cls + '">');
+                /*<field name="id" title="id"/>
+                 <field name="phoneNumber" title="手机号码"/>
+                 <field name="productName" title="产品名称"/>
+                 <field name="settlementCapital" title="投资金额"/>
+                 <field name="inceptionDate" title="投资起始时间"/>
+                 <field name="dueDate" title="投资到期时间"/>
+                 <field name="idNo" title="证件号码"/>
+                 <field name="userName" title="客户姓名"/>
+                 <field name="mtime" title="更新时间" pattern="yyyy-MM-dd HH:mm:ss"/>
+                 <field name="ctime" title="创建时间" pattern="yyyy-MM-dd HH:mm:ss"/>*/
                 tr.append('<td>' + rst[i].phoneNumber + '</td>');
-                tr.append('<td>' + rst[i].sysName + '</td>');
-                tr.append('<td>' + rst[i].sysIfRegister + '</td>');
-                tr.append('<td>' + rst[i].sysRegisterDate + '</td>');
-                tr.append('<td>' + rst[i].sysIfRealName + '</td>');
-                tr.append('<td>' + rst[i].sysIfBindCard + '</td>');
-                tr.append('<td>' + rst[i].sysIfTransaction + '</td>');
-                tr.append('<td>' + rst[i].sysReferrer + '</td>');
-                tr.append('<td>' + rst[i].sysRebateExpirationDate + '</td>');
-               
-				var td = $("<td>");
+                tr.append('<td>' + rst[i].productName + '</td>');
+                tr.append('<td>' + rst[i].settlementCapital + '</td>');
+                tr.append('<td>' + rst[i].inceptionDate + '</td>');
+                tr.append('<td>' + rst[i].dueDate + '</td>');
+                tr.append('<td>' + rst[i].idNo + '</td>');
+                tr.append('<td>' + rst[i].userName + '</td>');
+
+				/*var td = $("<td>");
 				td.append($("<a>编辑</a>").click({
 					id : rst[i].id
 				}, function(event) {
@@ -56,7 +64,7 @@
 				}, function(event) {
 					deleteUser(event.data.id);
 				}));
-				tr.append(td);
+				tr.append(td);*/
 				$("#tb>tbody").append(tr);
 			}
 		};
@@ -98,7 +106,7 @@
                 $.ajax({
                     type : 'POST',
                     contentType : 'application/json',
-                    url : '/ext/deleteById.do',
+                    url : '/cs/deleteById.do',
                     data : {'id' : id},
                     dataType : 'json',
                     success : function(data) {
@@ -165,7 +173,7 @@
 		 */
 		$("#exportExcel").click(function() {
 			downLoadFile({
-				url : '/ext/export/excel.do', //请求的url
+				url : '/cs/export/excel.do', //请求的url
 				data : {search : search_text},//要发送的数据
 				callback : function() {
 					//alert("导出excel文件成功");
@@ -189,8 +197,9 @@
 		</span>
     </div>
     <button type="button" id="exportExcel" class="btn btn-primary" style="float: right;">导出Excel</button>
-    <button type="button" id="importExcel" class="btn btn-primary" style="float: right; margin-right: 10px;">导入Excel</button>
-    <button type="button" id="addOneUser" class="btn btn-primary" style="float: right; margin-right: 10px;">新增用户</button>
+    <!--<button type="button" id="importExcel" class="btn btn-primary" style="float: right; margin-right: 10px;">导入Excel</button>
+    <button type="button" id="addOneUser" class="btn btn-primary" style="float: right; margin-right: 10px;">新增用户</button>-->
+
 <!--     <div id="myModal" class="modal fade"> -->
 <!-- 	  <div class="modal-dialog" role="document"> -->
 <!-- 	    <div class="modal-content"> -->
@@ -218,15 +227,13 @@
     <thead>
     <tr>
         <th width="10%">手机号码</th>
-        <th width="10%">系统内姓名</th>
-        <th width="10%">是否注册</th>
-        <th width="10%">注册日期</th>
-        <th width="10%">是否实名</th>
-        <th width="10%">是否绑卡</th>
-        <th width="10%">是否有过交易</th>
-        <th width="10%">扫码推荐人</th>
-        <th width="10%">返利失效日期</th>
-        <th width="10%">操作</th>
+        <th width="10%">产品名称</th>
+        <th width="10%">投资金额</th>
+        <th width="10%">投资起始时间</th>
+        <th width="10%">投资到期时间</th>
+        <th width="10%">证件号码</th>
+        <th width="10%">客户姓名</th>
+        <!--<th width="10%">操作</th>-->
     </tr>
     </thead>
     <tbody>
