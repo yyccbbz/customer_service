@@ -95,4 +95,18 @@ public class CsUserController extends BaseController {
         return mv;
     }
 
+
+    /*@RequestMapping("/export/pdf")
+    public String exportPersonalCreaditLoanContract(Model model) {
+        model.addAttribute(DATA, data());
+        model.addAttribute(FILENAME, "XXX贷款合同");
+        return "contract";
+    }
+
+    private Map<String, String> data() {
+        Map<String, String> data = new HashMap<String, String>();
+        data.put("borrower", "胡桃同学");
+        return data;
+    }*/
+
 }
