@@ -4801,26 +4801,30 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .navbar-custom {
 /*   background-color: #f8f8f8; */
 /*   border-color: #e7e7e7; */
-  background-color: #337ab7;
-  border-color: #337ab7;
+  /*background-color: #337ab7;*/
+  /*border-color: #337ab7;*/
+  background-color: #34495e;
+  border-color: #34495e;
+
+
 }
 .navbar-custom .navbar-brand {
 /*   color: #777; */
   color: #fff;
-  background-color: #337ab7;
+  background-color: #2ecc71;
 }
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus {
 /*   color: #5e5e5e; */
 /*   background-color: transparent; */
   color: #fff;
-  background-color: #337ab7;
+  background-color: #34495e;
   border-color: #122b40;
 }
 .navbar-custom .navbar-text {
 /*   color: #777; */
   color: #fff;
-  background-color: #337ab7;
+  background-color: #2ecc71;
 }
 .navbar-custom .navbar-nav > li > a {
 /*   color: #777; */

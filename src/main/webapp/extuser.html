@@ -1,3 +1,10 @@
+<style type="text/css">
+	.btn-primary{
+		box-shadow: 0 0 1px 1px #539a68;
+		background:#3ddd6f;
+		border: none;
+	}
+</style>
 <script>
     $(function () {
         var lock = false;
@@ -197,8 +204,8 @@
 		</span>
     </div>
     <button type="button" id="exportExcel" class="btn btn-primary" style="float: right;">导出Excel</button>
-    <!--<button type="button" id="importExcel" class="btn btn-primary" style="float: right; margin-right: 10px;">导入Excel</button>
-    <button type="button" id="addOneUser" class="btn btn-primary" style="float: right; margin-right: 10px;">新增用户</button>-->
+    <!--<button type="button" id="importExcel" class="btn btn-primary" style="float: right; margin-right: 10px;">导入Excel</button>-->
+    <!--<button type="button" id="addOneUser" class="btn btn-primary" style="float: right; margin-right: 10px;">新增用户</button>-->
 
 <!--     <div id="myModal" class="modal fade"> -->
 <!-- 	  <div class="modal-dialog" role="document"> -->
@@ -221,13 +228,13 @@
 <!-- 	</div> -->
     <input type="file" id="fileExcel" name="fileExcel" accept=".xls,.xlsx" style="display: none"/>
 </div>
-<hr class="line-3"/>
+<hr class="line-1"/>
 <!-- /.col-lg-6 -->
-<table id="tb" class="table table-hover table-condensed table-bordered">
+<table id="tb" class="table table-hover table-condensed table-bordered"style="border: none;">
     <thead>
     <tr>
         <th width="10%">手机号码</th>
-        <th width="10%">产品名称</th>
+        <th width="20%">产品名称</th>
         <th width="10%">投资金额</th>
         <th width="10%">投资起始时间</th>
         <th width="10%">投资到期时间</th>
