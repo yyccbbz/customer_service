@@ -3,7 +3,7 @@ package com.evergrande.customer_service.excel.converter;
 import com.evergrande.customer_service.excel.ExcelException;
 import com.evergrande.customer_service.excel.ResolveFieldValueConverter;
 import com.evergrande.customer_service.excel.vo.FieldValue;
-import com.evergrande.customer_service.model.BcExternalUser;
+import com.evergrande.customer_service.model.CsUser;
 
 /**
  * 自定义转换,测试学生创建人
@@ -21,8 +21,8 @@ public class CreateUserFieldValueConverter implements ResolveFieldValueConverter
 		if(type==Type.IMPORT){
 			if(queryForDb(value.toString())){
 				//这里可以重新对对象进行设置
-				BcExternalUser stu = (BcExternalUser) bean;
-				stu.setExcelId((long)001);
+				CsUser stu = (CsUser) bean;
+				stu.setId((long)001);
 				//stu.setCreateUserId(xx);
 				return value;
 			}else{

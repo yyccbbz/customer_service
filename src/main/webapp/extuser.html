@@ -152,7 +152,7 @@
 		//ajax上传文件
 		var ajaxFileUpload = function() {
 			$.ajaxFileUpload({
-				url : "/ext/upload.do", //用于文件上传的服务器端请求地址
+				url : "/cs/upload.do", //用于文件上传的服务器端请求地址
 				type : "post",
 				secureuri : false, //一般设置为false
 				fileElementId : "fileExcel", //文件上传空间的id属性
@@ -180,7 +180,7 @@
 		 */
 		$("#exportExcel").click(function() {
 			downLoadFile({
-				url : '/cs/export/excel.do', //请求的url
+				url : 'cs/export/excel.do', //请求的url
 				data : {search : search_text},//要发送的数据
 				callback : function() {
 					//alert("导出excel文件成功");

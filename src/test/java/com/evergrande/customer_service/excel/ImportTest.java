@@ -1,7 +1,7 @@
 package com.evergrande.customer_service.excel;
 
 import com.evergrande.customer_service.excel.vo.ExcelImportResult;
-import com.evergrande.customer_service.model.BcExternalUser;
+import com.evergrande.customer_service.model.CsUser;
 import org.junit.Test;
 
 import java.io.FileInputStream;
@@ -19,7 +19,7 @@ public class ImportTest {
 	// 配置文件路径
 	private static ExcelContext context = new ExcelContext("excel-config.xml");
 	// Excel配置文件中配置的id
-	private static String excelId = "bcExternalUser";
+	private static String excelId = "csUser";
 	
 	/**
 	 * 导入Excel,使用了org.easy.excel.test.ExportTest.testExportCustomHeader()方法生成的Excel
@@ -32,8 +32,8 @@ public class ImportTest {
 		//比如数据批次号之类的,关于如何转换成javaBean,具体参考配置信息描述
 		ExcelImportResult result = context.readExcel(excelId, 0, fis);
 		System.out.println(result.getHeader());
-		List<BcExternalUser> list = result.getListBean();
-		for(BcExternalUser user:list){
+		List<CsUser> list = result.getListBean();
+		for(CsUser user:list){
 			System.out.println(user);
 		}
 		

@@ -1,10 +1,10 @@
 package com.evergrande.customer_service.excel;
 
+import com.evergrande.customer_service.model.CsUser;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import com.evergrande.customer_service.model.BcExternalUser;
 import com.evergrande.customer_service.excel.vo.ExcelDefinition;
 import com.evergrande.customer_service.excel.vo.FieldValue;
 import org.junit.Test;
@@ -14,6 +14,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Excel导出测试
@@ -27,7 +28,7 @@ public class ExportTest {
     //配置文件路径
     private static ExcelContext context = new ExcelContext("excel-config.xml");
     //Excel配置文件中配置的id
-    private static String excelId = "bcExternalUser";
+    private static String excelId = "csUser";
 
     /***
      * 导出测试,分多次导出
@@ -72,7 +73,7 @@ public class ExportTest {
     @Test
     public void testExportCustomHeader() throws Exception {
         OutputStream ops = new FileOutputStream(path);
-        final List<BcExternalUser> list = getUserList();
+        final List<CsUser> list = getUserList();
         Workbook workbook = context.createExcel(excelId, list, new ExcelHeader() {
             @Override
             public void buildHeader(Sheet sheet, ExcelDefinition excelDefinition, List<?> beans) {
@@ -110,7 +111,7 @@ public class ExportTest {
         specifyFields.add("sysRebateExpirationDate");
         specifyFields.add("mtime");
         specifyFields.add("ctime");
-        List<BcExternalUser> list = getUserList();
+        List<CsUser> list = getUserList();
         Workbook workbook = context.createExcel(excelId, list, null, specifyFields);
         workbook.write(ops);
         ops.close();
@@ -136,7 +137,7 @@ public class ExportTest {
         specifyFields.add("sysIfTransaction");
         specifyFields.add("sysReferrer");
         specifyFields.add("sysRebateExpirationDate");
-        final List<BcExternalUser> list = getUserList();
+        final List<CsUser> list = getUserList();
         Workbook workbook = context.createExcel(excelId, list, new ExcelHeader() {
 
             @Override
@@ -192,13 +193,12 @@ public class ExportTest {
         //这里我指定导出id,name,age三个字段(以配置文件中的name属性为准,而不是标题)
         List<String> specifyFields = new ArrayList<String>();
         specifyFields.add("phoneNumber");
-        specifyFields.add("sysName");
-        specifyFields.add("sysIfRegister");
-        specifyFields.add("sysIfRealName");
-        specifyFields.add("sysIfBindCard");
-        specifyFields.add("sysIfTransaction");
-        specifyFields.add("sysReferrer");
-        specifyFields.add("sysRebateExpirationDate");
+        specifyFields.add("productName");
+        specifyFields.add("settlementCapital");
+        specifyFields.add("inceptionDate");
+        specifyFields.add("dueDate");
+        specifyFields.add("idNo");
+        specifyFields.add("userName");
         //Workbook workbook = context.createExcelTemplate(excelId,null,specifyFields);
         //Workbook workbook = context.createExcelTemplate(excelId,null,null);
         Workbook workbook = context.createExcelTemplate(excelId, new ExcelHeader() {
@@ -213,35 +213,47 @@ public class ExportTest {
                     }
                 },
                 specifyFields);//指定字段,可以打开注释测试
-                //null);//不指定字段
+        //null);//不指定字段
         workbook.write(ops);
         ops.close();
         workbook.close();
     }
 
     //获取模拟数据,数据库数据...
-    public static List<BcExternalUser> getUserList() {
+    public static List<CsUser> getUserList() {
+        /*<field name="id" title="id"/>
+        <field name="phoneNumber" title="手机号码"/>
+		<field name="productName" title="产品名称"/>
+		<field name="settlementCapital" title="投资金额"/>
+		<field name="inceptionDate" title="投资起始时间"/>
+		<field name="dueDate" title="投资到期时间"/>
+		<field name="idNo" title="证件号码"/>
+		<field name="userName" title="客户姓名"/>
+		<field name="mtime" title="更新时间" pattern="yyyy-MM-dd HH:mm:ss"/>
+		<field name="ctime" title="创建时间" pattern="yyyy-MM-dd HH:mm:ss"/>*/
         int size = 10;
-        List<BcExternalUser> userList = new ArrayList<BcExternalUser>(size);
+        List<CsUser> userList = new ArrayList<CsUser>(size);
         for (int i = 0; i < size; i++) {
-            BcExternalUser user = new BcExternalUser();
+            CsUser user = new CsUser();
             user.setId(Long.parseLong("" + i) + 1);
             user.setPhoneNumber(13345678900L + i);
-            user.setSysName("张三" + i);
             if (i % 2 == 0) {
-                user.setSysIfRealName("是");
-                user.setSysIfBindCard("是");
-                user.setSysIfRegister("是");
-                user.setSysIfTransaction("是");
+                user.setProductName("国庆节大礼包A01期" + i + "号");
+                user.setSettlementCapital(10000L + i);
             } else {
-                user.setSysIfRealName("否");
-                user.setSysIfBindCard("否");
-                user.setSysIfRegister("否");
-                user.setSysIfTransaction("否");
+                user.setProductName("中秋节大礼包C01期" + i + "号");
+                user.setSettlementCapital(1010000L + i);
             }
-            user.setSysRegisterDate("2016-08-31");
-            user.setSysReferrer("王五" + i);
-            user.setSysRebateExpirationDate("2016-10-01");
+            user.setInceptionDate("2016-08-31");
+            user.setDueDate("2016-10-01");
+            String s = "";
+            Random random = new Random();
+            s += random.nextInt(9) + 1;
+            for (int j = 0; j < 18 - 1; j++) {
+                s += random.nextInt(10);
+            }
+            user.setIdNo(s);
+            user.setUserName("张三" + i);
             user.setMtime(new Date());
             user.setCtime(new Date());
 

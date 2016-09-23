@@ -17,29 +17,29 @@ import java.util.Map;
  * Created by cuican on 2016-9-19.
  */
 public class TestPdf {
-    @Test
-    public void test() throws IOException, DocumentException {
-        // pdf模板
-        String fileName = "D:/template.pdf";
-        // 常见读取pdf的对象
-        PdfReader reader = new PdfReader(fileName);
-        // 字节数组输出流
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        //pdf表单，用来填充pdf
-        PdfStamper ps = new PdfStamper(reader, bos);
-        //
-        AcroFields fields = ps.getAcroFields();
-        //
-        fillData(fields, data());
-        //
-        ps.setFormFlattening(true);
-        //
-        ps.close();
-        //
-        OutputStream fos = new FileOutputStream("D:/contract.pdf");
-        //
-        fos.write(bos.toByteArray());
-    }
+//    @Test
+//    public void test() throws IOException, DocumentException {
+//        // pdf模板
+//        String fileName = "D:/template.pdf";
+//        // 常见读取pdf的对象
+//        PdfReader reader = new PdfReader(fileName);
+//        // 字节数组输出流
+//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//        //pdf表单，用来填充pdf
+//        PdfStamper ps = new PdfStamper(reader, bos);
+//        //
+//        AcroFields fields = ps.getAcroFields();
+//        //
+//        fillData(fields, data());
+//        //
+//        ps.setFormFlattening(true);
+//        //
+//        ps.close();
+//        //
+//        OutputStream fos = new FileOutputStream("D:/contract.pdf");
+//        //
+//        fos.write(bos.toByteArray());
+//    }
 
     /**
      *

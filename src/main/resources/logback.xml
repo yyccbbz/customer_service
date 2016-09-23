@@ -38,12 +38,12 @@
 		</rollingPolicy>
 	</appender>
 
-	<root level="debug">
+	<root level="info">
 		<appender-ref ref="consoleAppender" />
 		<appender-ref ref="fileAppenderByTime" />
 	</root>
 
-	<logger name="access" additivity="false" level="debug">
+	<logger name="access" additivity="false" level="info">
 		<!-- <appender-ref ref="consoleAppender" /> -->
 		<appender-ref ref="accessAppenderByTime" />
 	</logger>
