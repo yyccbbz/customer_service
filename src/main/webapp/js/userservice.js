@@ -1,5 +1,5 @@
 var $userservice = function () {
-    var url = "http://10.127.133.93:8080/user-service";
+    var url = "http://us.xiwanglife.com";
     var checkuser = url + "/userservice/checkuser.do";
     var getuser = url + "/userservice/getuser.do";
     var getlogin = url + "/login.html";
