@@ -72,16 +72,7 @@ public class CsUserController extends BaseController {
         ExcelHeader header = null;
         //指定导出字段
         List<String> specifyFields = new ArrayList<String>();
-        /*<field name="id" title="id"/>
-		<field name="phoneNumber" title="手机号码"/>
-		<field name="productName" title="产品名称"/>
-		<field name="settlementCapital" title="投资金额"/>
-		<field name="inceptionDate" title="投资起始时间"/>
-		<field name="dueDate" title="投资到期时间"/>
-		<field name="idNo" title="证件号码"/>
-		<field name="userName" title="客户姓名"/>
-		<field name="mtime" title="更新时间" pattern="yyyy-MM-dd HH:mm:ss"/>
-		<field name="ctime" title="创建时间" pattern="yyyy-MM-dd HH:mm:ss"/>*/
+
         specifyFields.add("phoneNumber");
         specifyFields.add("productName");
         specifyFields.add("settlementCapital");
