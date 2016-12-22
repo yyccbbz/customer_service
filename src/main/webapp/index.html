@@ -185,7 +185,9 @@ td{
 <script src="js/jquery.cookie.js"></script>
 	<script type="text/javascript" charset="utf-8" src="http://bigdata.blazer.org:8030/js/userservice.js"></script>
 <script>
+	var $userservice = new $userservice("customer-service");
 	window.onload = function() {
+
 		var width = $(window).width();
 		var height = $(window).height();
 		$("#center").height(height - $("#north").height() - $("#south").height() - 103 - 32);
@@ -198,17 +200,6 @@ td{
 				setSrc(this, 'extuser.html');
 			});
 			link_ul.append(link_li_1);
-
-			/*var link_li_2 = $('<li><a href="javascript:void(0);">平台待分配客户</a></li>');
-			link_li_2.click(function() {
-				setSrc(this, 'page2.html');
-			});
-			link_ul.append(link_li_2);
-			var link_li_3 = $('<li><a href="javascript:void(0);">正式客户</a></li>');
-			link_li_3.click(function() {
-				setSrc(this, 'page3.html');
-			});
-			link_ul.append(link_li_3);*/
 
 			link_li_1.click();
 		};
