@@ -244,8 +244,8 @@ public class ExportTest {
                 user.setProductName("中秋节大礼包C01期" + i + "号");
                 user.setSettlementCapital(1010000L + i);
             }
-            user.setInceptionDate("2016-08-31");
-            user.setDueDate("2016-10-01");
+            user.setInceptionDate(new Date());
+            user.setDueDate(new Date());
             String s = "";
             Random random = new Random();
             s += random.nextInt(9) + 1;

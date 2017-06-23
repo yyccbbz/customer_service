@@ -47,16 +47,10 @@
                 tr.append('<td>' + rst[i].productName + '</td>');
                 tr.append('<td>' + rst[i].settlementCapital + '</td>');
 
-                var inceptionDate = rst[i].inceptionDate;
-                if (inceptionDate.length > 10) {
-                    inceptionDate = inceptionDate.substring(0, 10);
-                }
+                var inceptionDate = $util.yyyy_MM_dd(rst[i].inceptionDate);
                 tr.append('<td>' + inceptionDate + '</td>');
 
-                var dueDate = rst[i].dueDate;
-                if (dueDate.length > 10) {
-                    dueDate = dueDate.substring(0, 10);
-                }
+                var dueDate = $util.yyyy_MM_dd(rst[i].dueDate);
                 tr.append('<td>' + dueDate + '</td>');
 
                 tr.append('<td>' + rst[i].idNo + '</td>');

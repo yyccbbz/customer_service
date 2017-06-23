@@ -29,8 +29,8 @@ public class CsUserMapperTest extends BasicTest {
             csUser.setPhoneNumber(18899990000L + i);
             csUser.setProductName("国庆节专享ABC" + i + "期" + i + "号");
             csUser.setSettlementCapital(10000L + i);
-            csUser.setInceptionDate(DateUtil.thisDate());
-            csUser.setDueDate(DateUtil.thisDate());
+            csUser.setInceptionDate(new Date());
+            csUser.setDueDate(new Date());
             String s = "";
             Random random = new Random();
             s += random.nextInt(9) + 1;
@@ -49,6 +49,7 @@ public class CsUserMapperTest extends BasicTest {
 
     /**
      * 产生18位的随机数
+     *
      * @param a
      */
     public static void main(String[] a) {

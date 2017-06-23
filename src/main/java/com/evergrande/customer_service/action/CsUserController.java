@@ -57,7 +57,7 @@ public class CsUserController extends BaseController {
      * @param request
      * @return
      */
-    @RequestMapping(value = "export/excel",method = RequestMethod.POST)
+    @RequestMapping(value = "export/excel", method = RequestMethod.POST)
     public ModelAndView exportExcel(HttpServletRequest request) {
 
         //根据条件获取要导出的数据集合
@@ -67,7 +67,7 @@ public class CsUserController extends BaseController {
         //xml配置中的ID
         String id = "csUser";
         //excel文件名称,不需要任何后缀
-        String excelName = "CsUser_Export_"+ DateUtil.thisDateTime();
+        String excelName = "CsUser_Export_" + DateUtil.thisDateTime();
         //可以为空,自定义Excel头信息
         ExcelHeader header = null;
         //指定导出字段

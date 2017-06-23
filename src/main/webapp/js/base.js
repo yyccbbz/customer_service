@@ -37,3 +37,14 @@ var downloadFileByTagA = function(){
     $("<span>AAAAAAA</span>").appendTo(a).trigger("click");
     window.setTimeout(function(){a.remove();},3000);
 };
+
+
+function formatDate(time) {
+    if (time == '' || time == null || time == undefined) return '';
+    var datetime = new Date(time);
+    // datetime.setTime(time);
+    var year = datetime.getFullYear();
+    var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+    var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+    return year + "-" + month + "-" + date;
+}
