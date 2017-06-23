@@ -47,10 +47,10 @@
                 tr.append('<td>' + rst[i].productName + '</td>');
                 tr.append('<td>' + rst[i].settlementCapital + '</td>');
 
-                var inceptionDate = $util.yyyy_MM_dd(rst[i].inceptionDate);
+                var inceptionDate = formatDate(rst[i].inceptionDate);
                 tr.append('<td>' + inceptionDate + '</td>');
 
-                var dueDate = $util.yyyy_MM_dd(rst[i].dueDate);
+                var dueDate = formatDate(rst[i].dueDate);
                 tr.append('<td>' + dueDate + '</td>');
 
                 tr.append('<td>' + rst[i].idNo + '</td>');
@@ -64,7 +64,7 @@
 		$("#search").click(function() {
 			findByPage(1);
 		});
-		var search_text = "";
+		var search_text = $("#search_text").val();
 		$("#search_text").change(function() {
 			search_text = $(this).val();
 		});

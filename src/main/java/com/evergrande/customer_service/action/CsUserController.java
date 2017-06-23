@@ -6,7 +6,9 @@ import com.evergrande.customer_service.service.CsUserService;
 import com.evergrande.customer_service.util.DateUtil;
 import com.evergrande.customer_service.util.IntegerUtil;
 import com.evergrande.customer_service.util.StringUtil;
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -58,12 +61,24 @@ public class CsUserController extends BaseController {
      * @return
      */
     @RequestMapping(value = "export/excel", method = RequestMethod.POST)
-    public ModelAndView exportExcel(HttpServletRequest request) {
+    public ModelAndView exportExcel(HttpServletRequest request) throws Exception {
+        request.setCharacterEncoding("utf-8");
+        String search1 = request.getParameter("search");
+        List<CsUser> list = null;
+        if (StringUtils.isNotEmpty(search1)){
+            //根据条件获取要导出的数据集合
+//        String search = StringUtil.getStrEmpty(request.getParameter("search"));
+            String search = new String(search1.getBytes("iso-8859-1"),"utf-8");
+            LOGGER.debug("search:" + search);
+            list = csUserService.findBySearch(search);
 
-        //根据条件获取要导出的数据集合
-        String search = StringUtil.getStrEmpty(request.getParameter("search"));
-        LOGGER.debug("search:" + search);
-        List<CsUser> list = csUserService.findBySearch(search);
+        }else {
+            Example example = new Example(CsUser.class);
+            Example.Criteria criteria = example.createCriteria();
+            PageHelper.startPage(1, 10);
+            list = csUserService.selectByExample(example);
+        }
+
         //xml配置中的ID
         String id = "csUser";
         //excel文件名称,不需要任何后缀

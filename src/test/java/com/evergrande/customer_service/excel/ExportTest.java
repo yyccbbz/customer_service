@@ -221,16 +221,6 @@ public class ExportTest {
 
     //获取模拟数据,数据库数据...
     public static List<CsUser> getUserList() {
-        /*<field name="id" title="id"/>
-        <field name="phoneNumber" title="手机号码"/>
-		<field name="productName" title="产品名称"/>
-		<field name="settlementCapital" title="投资金额"/>
-		<field name="inceptionDate" title="投资起始时间"/>
-		<field name="dueDate" title="投资到期时间"/>
-		<field name="idNo" title="证件号码"/>
-		<field name="userName" title="客户姓名"/>
-		<field name="mtime" title="更新时间" pattern="yyyy-MM-dd HH:mm:ss"/>
-		<field name="ctime" title="创建时间" pattern="yyyy-MM-dd HH:mm:ss"/>*/
         int size = 10;
         List<CsUser> userList = new ArrayList<CsUser>(size);
         for (int i = 0; i < size; i++) {
