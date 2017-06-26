@@ -229,10 +229,10 @@ public class ExportTest {
             user.setPhoneNumber(13345678900L + i);
             if (i % 2 == 0) {
                 user.setProductName("国庆节大礼包A01期" + i + "号");
-                user.setSettlementCapital(10000L + i);
+                user.setSettlementCapital(10000d + i);
             } else {
                 user.setProductName("中秋节大礼包C01期" + i + "号");
-                user.setSettlementCapital(1010000L + i);
+                user.setSettlementCapital(1010000d + i);
             }
             user.setInceptionDate(new Date());
             user.setDueDate(new Date());

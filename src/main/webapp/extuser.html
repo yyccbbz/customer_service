@@ -45,7 +45,9 @@
 
                 tr.append('<td>' + rst[i].phoneNumber + '</td>');
                 tr.append('<td>' + rst[i].productName + '</td>');
-                tr.append('<td>' + rst[i].settlementCapital + '</td>');
+
+                var settlementCapital = getDouble(rst[i].settlementCapital.toString());
+                tr.append('<td>' + settlementCapital + '</td>');
 
                 var inceptionDate = formatDate(rst[i].inceptionDate);
                 tr.append('<td>' + inceptionDate + '</td>');
@@ -131,6 +133,21 @@
 //		});
 
     });
+
+    function getDouble(str) {
+
+        if (str.indexOf('.') != -1) {
+            var num = str.length - str.indexOf('.') - 1;
+            if (num > 2)
+                str = str.substring(0, str.indexOf('.') + 2 + 1);
+            if (num < 2)
+                str += "0"
+        } else {
+            str += ".00"
+        }
+//        console.log(str);
+        return str;
+    };
 </script>
 <div class="row" style="margin: 0;">
     <div class="input-group has-primary" style="float: left; width: 200px;">
@@ -140,7 +157,7 @@
 		</span>
     </div>
 
-    <span style="height: 30px;line-height: 30px;margin-left: 50px;font-size: 18px; ">以下数据只包含 定期产品+活包定产品 的交易明细</span>
+    <!--<span style="height: 30px;line-height: 30px;margin-left: 50px;font-size: 18px; ">以下数据只包含 定期产品+活包定产品 的交易明细</span>-->
 
     <button type="button" id="exportExcel" class="btn btn-primary" style="float: right;">导出Excel</button>
 </div>

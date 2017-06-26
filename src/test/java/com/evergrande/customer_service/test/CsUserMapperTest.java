@@ -28,7 +28,7 @@ public class CsUserMapperTest extends BasicTest {
             CsUser csUser = new CsUser();
             csUser.setPhoneNumber(18899990000L + i);
             csUser.setProductName("国庆节专享ABC" + i + "期" + i + "号");
-            csUser.setSettlementCapital(10000L + i);
+            csUser.setSettlementCapital(10000d + i);
             csUser.setInceptionDate(new Date());
             csUser.setDueDate(new Date());
             String s = "";

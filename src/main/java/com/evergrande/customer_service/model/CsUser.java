@@ -28,7 +28,7 @@ public class CsUser {
      * 投资金额
      */
     @Column(name = "settlement_capital")
-    private Long settlementCapital;
+    private Double settlementCapital;
 
     /**
      * 投资起始时间
@@ -88,11 +88,11 @@ public class CsUser {
         this.productName = productName;
     }
 
-    public Long getSettlementCapital() {
+    public Double getSettlementCapital() {
         return settlementCapital;
     }
 
-    public void setSettlementCapital(Long settlementCapital) {
+    public void setSettlementCapital(Double settlementCapital) {
         this.settlementCapital = settlementCapital;
     }
 
