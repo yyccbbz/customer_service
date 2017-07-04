@@ -65,14 +65,14 @@ public class CsUserController extends BaseController {
         request.setCharacterEncoding("utf-8");
         String search1 = request.getParameter("search");
         List<CsUser> list = null;
-        if (StringUtils.isNotEmpty(search1)){
+        if (StringUtils.isNotEmpty(search1)) {
             //根据条件获取要导出的数据集合
 //        String search = StringUtil.getStrEmpty(request.getParameter("search"));
-            String search = new String(search1.getBytes("iso-8859-1"),"utf-8");
+            String search = new String(search1.getBytes("iso-8859-1"), "utf-8");
             LOGGER.debug("search:" + search);
             list = csUserService.findBySearch(search);
 
-        }else {
+        } else {
             Example example = new Example(CsUser.class);
             Example.Criteria criteria = example.createCriteria();
             PageHelper.startPage(1, 10);

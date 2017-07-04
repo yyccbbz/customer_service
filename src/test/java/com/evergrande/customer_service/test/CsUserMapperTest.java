@@ -26,21 +26,7 @@ public class CsUserMapperTest extends BasicTest {
         //批量添加用户
         for (int i = 0; i < 1000; i++) {
             CsUser csUser = new CsUser();
-            csUser.setPhoneNumber(18899990000L + i);
-            csUser.setProductName("国庆节专享ABC" + i + "期" + i + "号");
-            csUser.setSettlementCapital(10000d + i);
-            csUser.setInceptionDate(new Date());
-            csUser.setDueDate(new Date());
-            String s = "";
-            Random random = new Random();
-            s += random.nextInt(9) + 1;
-            for (int j = 0; j < 18 - 1; j++) {
-                s += random.nextInt(10);
-            }
-            csUser.setIdNo(s);
-            csUser.setUserName("张三三" + i);
-            csUser.setMtime(DateUtil.getFirstDateOfMonth(new Date()));
-            csUser.setCtime(csUser.getMtime());
+
             csUserMapper.insert(csUser);
         }
 

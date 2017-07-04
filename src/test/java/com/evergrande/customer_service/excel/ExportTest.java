@@ -223,32 +223,7 @@ public class ExportTest {
     public static List<CsUser> getUserList() {
         int size = 10;
         List<CsUser> userList = new ArrayList<CsUser>(size);
-        for (int i = 0; i < size; i++) {
-            CsUser user = new CsUser();
-            user.setId(Long.parseLong("" + i) + 1);
-            user.setPhoneNumber(13345678900L + i);
-            if (i % 2 == 0) {
-                user.setProductName("国庆节大礼包A01期" + i + "号");
-                user.setSettlementCapital(10000d + i);
-            } else {
-                user.setProductName("中秋节大礼包C01期" + i + "号");
-                user.setSettlementCapital(1010000d + i);
-            }
-            user.setInceptionDate(new Date());
-            user.setDueDate(new Date());
-            String s = "";
-            Random random = new Random();
-            s += random.nextInt(9) + 1;
-            for (int j = 0; j < 18 - 1; j++) {
-                s += random.nextInt(10);
-            }
-            user.setIdNo(s);
-            user.setUserName("张三" + i);
-            user.setMtime(new Date());
-            user.setCtime(new Date());
 
-            userList.add(user);
-        }
         return userList;
     }
 }

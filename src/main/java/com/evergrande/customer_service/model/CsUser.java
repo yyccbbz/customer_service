@@ -28,7 +28,7 @@ public class CsUser {
      * 投资金额
      */
     @Column(name = "settlement_capital")
-    private Double settlementCapital;
+    private String settlementCapital;
 
     /**
      * 投资起始时间
@@ -88,11 +88,11 @@ public class CsUser {
         this.productName = productName;
     }
 
-    public Double getSettlementCapital() {
+    public String getSettlementCapital() {
         return settlementCapital;
     }
 
-    public void setSettlementCapital(Double settlementCapital) {
+    public void setSettlementCapital(String settlementCapital) {
         this.settlementCapital = settlementCapital;
     }
 
